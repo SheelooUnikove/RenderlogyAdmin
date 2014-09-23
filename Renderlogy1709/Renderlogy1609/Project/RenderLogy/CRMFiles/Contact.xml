@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Fields>
+  <Field>
+    <Name ColumnOrder="1">ContactName</Name>
+    <Synonyms>
+      <Synonym>First Name</Synonym>
+      <!--<Synonym>Name</Synonym>-->
+      <Synonym>Ist Name</Synonym>
+      <Synonym>Contact Name</Synonym>
+      <Synonym>Person Name</Synonym>
+      <Synonym>Title</Synonym>
+    </Synonyms>
+  </Field>
+  <Field>
+    <Name ColumnOrder="2">Developer</Name>
+    <Synonyms>
+      <Synonym>Developer Name</Synonym>
+      <Synonym>Builder</Synonym>
+      <Synonym>Constructor</Synonym>
+      <Synonym>Maker</Synonym>
+      <Synonym>Manufacturer</Synonym>
+      <Synonym>Assembler</Synonym>
+    </Synonyms>
+  </Field>
+  <Field>
+    <Name ColumnOrder="3">AccountName</Name>
+    <Synonyms>
+      <Synonym>Account Name</Synonym>
+      <Synonym>Acc Name</Synonym>
+    </Synonyms>
+  </Field>
+  <Field>
+    <Name ColumnOrder="4">AccountType</Name>
+    <Synonyms>
+      <Synonym>Account Type</Synonym>
+    </Synonyms>
+  </Field>
+  <Field>
+    <Name ColumnOrder="5">City</Name>
+    <Synonyms>
+      <Synonym>City</Synonym>
+    </Synonyms>
+  </Field>
+  <Field>
+    <Name ColumnOrder="6">Address</Name>
+    <Synonyms>
+      <Synonym>Postal Address</Synonym>
+    </Synonyms>
+  </Field>
+  <Field>
+    <Name ColumnOrder="7">MobileNumber</Name>
+    <Synonyms>
+      <Synonym>Mobile</Synonym>
+      <Synonym>Mob</Synonym>
+      <Synonym>Mob No.</Synonym>
+      <Synonym>Mob. No.</Synonym>
+      <Synonym>Contact No.</Synonym>
+    </Synonyms>
+  </Field>
+  <Field>
+    <Name ColumnOrder="8">PhoneNumber</Name>
+    <Synonyms>
+      <Synonym>Phone</Synonym>
+      <Synonym>Landline</Synonym>
+      <Synonym>Landline No.</Synonym>
+      <Synonym>Phone No.</Synonym>
+      <Synonym>Ph. No.</Synonym>
+      <Synonym>Phone Number</Synonym>
+      <Synonym>Contact No.</Synonym>
+    </Synonyms>
+  </Field>
+  <Field>
+    <Name ColumnOrder="9">EmailAddress</Name>
+    <Synonyms>
+      <Synonym>Email</Synonym>
+      <Synonym>Mail</Synonym>
+      <Synonym>Email Id</Synonym>
+      <Synonym>UserId</Synonym>
+      <Synonym>UserName</Synonym>
+      <Synonym>Email Address</Synonym>
+      <Synonym>Mail Add</Synonym>
+    </Synonyms>
+  </Field>
+  <Field>
+    <Name ColumnOrder="10">AccountManager</Name>
+    <Synonyms>
+      <Synonym>Manager</Synonym>
+      <Synonym>Account Manager</Synonym>
+      <Synonym>Account Manager Name</Synonym>
+    </Synonyms>
+  </Field>
+  <Field>
+    <Name ColumnOrder="11">Status</Name>
+    <Synonyms>
+      <Synonym>Status</Synonym>
+    </Synonyms>
+  </Field>
+  <Field>
+    <Name ColumnOrder="12">Budget</Name>
+    <Synonyms>
+      <Synonym>Budget</Synonym>
+    </Synonyms>
+  </Field>
+  <Field>
+    <Name ColumnOrder="13">ReferalSource</Name>
+    <Synonyms>
+      <Synonym>ReferalSource</Synonym>
+    </Synonyms>
+  </Field>
+  <Field>
+    <Name ColumnOrder="14">AccountType</Name>
+    <Synonyms>
+      <Synonym>Account Type</Synonym>
+    </Synonyms>
+  </Field>
+</Fields>

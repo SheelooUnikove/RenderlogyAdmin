@@ -1,0 +1,38 @@
+/*------------------------------------------------------------------------------------*/
+/*------------------------------  YOUR CUSTOM CSS STYLE  -----------------------------*/
+body{ margin:0;}
+.flt_rht{ float:right !important;}
+.flt_lft{ float:left !important;}
+.nav.nav-tabs > li > a{ background-color:#ececec ;}
+.nav-tabs, .nav-tabs > li > a{ border:none;}
+.navbar-default{ background:transparent;}
+.header-menu #notifications-header .glyph-icon{ color:#000 !important;}
+.nav_new{box-shadow: 1px 0px 4px 2px #ccc; border-bottom: 1px solid #aaa;}
+#tab1_2 .force-table-responsive{ border:none; overflow-x:auto;}
+#DataTables_Table_0_wrapper.force-table-responsive .row{ margin-right:0 ; margin-left:0 ;}
+.navbar-brand{ height:auto;}
+.nav #clock-header.open>a,.nav #clock-header.open>a:hover,.nav #clock-header.open>a:focus{background-color:transparent;}
+#clock-header .fa-clock-o{ line-height:20px;}
+body.login{ background:#ececec;}
+.login-links a { color: #0090d9;}
+.login-box { background: #ffffff; color:#6c6c6c;}
+.login-form input, .login-form select { background: #fefefe; border: 1px solid #d3d3d3;}
+.login-signup{ max-width:100%;}
+.signup input{ width:100%;}
+.member{ margin-right:0; margin-top:0; margin-left:0 !important;}
+.role_list li{ width:50%; float:left;}
+.member-entry img {max-height: 100px;}
+.member img{ border-radius: 50%; overflow: hidden;}
+.member-face img{max-width:20px; margin-right:3px;}
+#tabinTab li.active a{ z-index:1;}
+.widthmax500{ max-width:500px !important;}
+.width_auto {width:auto !important;}
+.dis_non { display: none !important;}
+.customtable .dataTables_length, .customtable thead, .customtable .dataTables_filter{ display:none;}
+.customtable .force-table-responsive {border:none;overflow-x:auto}
+.customtable .table > thead > tr > th, .customtable .table > tbody > tr > th, .customtable .table > tfoot > tr > th, .customtable .table > thead > tr > td, .customtable .table > tbody > tr > td, .customtable .table > tfoot > tr > td {
+border:none !important;}
+.customtable .force-table-responsive td.sorting_1 {border:none; padding:0;}
+    .customtable .force-table-responsive td.sorting_1 .ui-checkbox { margin:0;}
+.customtable .row:last-child {
+margin:0 !important;}

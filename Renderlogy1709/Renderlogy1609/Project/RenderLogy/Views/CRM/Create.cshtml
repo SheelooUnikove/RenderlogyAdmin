@@ -1,0 +1,463 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js sidebar-large lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js sidebar-large lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js sidebar-large lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js sidebar-large">
+<!--<![endif]-->
+
+<head>
+    <!-- BEGIN META SECTION -->
+    <meta charset="utf-8">
+    <title>Renderlogy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="" name="description" />
+    <meta content="themes-lab" name="author" />
+    <link rel="shortcut icon" href="~/assets/img/favicon.png">
+    <!-- END META SECTION -->
+    <!-- BEGIN MANDATORY STYLE -->
+    <!-- BEGIN MANDATORY STYLE -->
+    <link href="~/assets/css/icons/iconsmin.css" rel="stylesheet">
+    <link href="~/assets/css/bootstrapmin.css" rel="stylesheet">
+    <link href="~/assets/css/pluginsmin.css" rel="stylesheet">
+    <link href="~/assets/css/stylemin.css" rel="stylesheet">
+    <link href="~/assets/css/custom.css" rel="stylesheet">
+    <link href="~/assets/plugins/bootstrapselect/bootstrapselectmin.css" rel="stylesheet" />
+    <!-- END  MANDATORY STYLE -->
+    <!-- BEGIN PAGE LEVEL STYLE -->
+    <link href="~/assets/plugins/datetimepicker/jquerydatetimepicker.css" rel="stylesheet">
+    <link href="~/assets/plugins/pickadate/themes/default.css" rel="stylesheet">
+    <link href="~/assets/plugins/pickadate/themes/defaultdate.css" rel="stylesheet">
+    <link href="~/assets/plugins/pickadate/themes/defaulttime.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/assets/plugins/datatables/dataTables.css">
+    <link rel="stylesheet" href="~/assets/plugins/datatables/dataTablestableTools.css">
+    <!-- END PAGE LEVEL STYLE -->
+    <script src="~/assets/plugins/modernizr/modernizr262respond110min.js"></script>
+
+</head>
+
+<body data-page="Contact">
+    @model RgyDAL.CRMContact
+
+    @{
+        ViewBag.Title = "Add a New Contact";
+    }
+
+
+    @using (Html.BeginForm())
+    { 
+        @Html.AntiForgeryToken()
+        <!-- Static navbar -->
+        <div class="navbar navbar-default navbar-static-top nav_new" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img src="~/assets/img/renderlogy_logo.png" /></a>
+                </div>
+                <div class="navbar-collapse collapse navbar-right m-t-15">
+                    <ul class="nav navbar-nav navbar-default">
+                        <li class="active"><a href="#">DASHBOARD</a></li>
+                        <li><a href="#about">PMO</a></li>
+                        <li><a href="#contact">CALENDER</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right header-menu">
+
+                        <!-- BEGIN NOTIFICATION DROPDOWN -->
+                        <li class="dropdown" id="notifications-header"><a href="#" class="dropdown-toggle c-dark" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"><i class="glyph-icon flaticon-notifications"></i><span class="badge badge-danger badge-header">6</span> </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-header clearfix">
+                                    <p class="pull-left">Notifications</p>
+                                </li>
+                                <li>
+                                    <ul class="dropdown-menu-list withScroll" data-height="220">
+                                        <li><a href="#"><i class="fa fa-star p-r-10 f-18 c-orange"></i>Steve have rated your photo <span class="dropdown-time">Just now</span> </a></li>
+                                        <li><a href="#"><i class="fa fa-heart p-r-10 f-18 c-red"></i>John added you to his favs <span class="dropdown-time">15 mins</span> </a></li>
+                                        <li><a href="#"><i class="fa fa-file-text p-r-10 f-18"></i>New document available <span class="dropdown-time">22 mins</span> </a></li>
+                                        <li><a href="#"><i class="fa fa-picture-o p-r-10 f-18 c-blue"></i>New picture added <span class="dropdown-time">40 mins</span> </a></li>
+                                        <li><a href="#"><i class="fa fa-bell p-r-10 f-18 c-orange"></i>Meeting in 1 hour <span class="dropdown-time">1 hour</span> </a></li>
+                                        <li><a href="#"><i class="fa fa-bell p-r-10 f-18"></i>Server 5 overloaded <span class="dropdown-time">2 hours</span> </a></li>
+                                        <li><a href="#"><i class="fa fa-comment p-r-10 f-18 c-gray"></i>Bill comment your post <span class="dropdown-time">3 hours</span> </a></li>
+                                        <li><a href="#"><i class="fa fa-picture-o p-r-10 f-18 c-blue"></i>New picture added <span class="dropdown-time">2 days</span> </a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-footer clearfix"><a href="#" class="pull-left">See all notifications</a> <a href="#" class="pull-right"><i class="fa fa-cog"></i></a></li>
+                            </ul>
+                        </li>
+                        <!-- END NOTIFICATION DROPDOWN -->
+                        <!-- BEGIN USER DROPDOWN -->
+                        <li class="dropdown" id="user-header"><a href="#" class="dropdown-toggle c-dark" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                            <img src="~/assets/img/avatars/avatar2.png" alt="user avatar" width="30" class="p-r-5">
+                            <span class="username">Bob Nilson</span> <i class="fa fa-angle-down p-r-10"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="profil.html"><i class="glyph-icon flaticon-account"></i>My Profile </a></li>
+                                <li><a href="calendar.html"><i class="glyph-icon flaticon-calendar"></i>My Calendar </a></li>
+                                <li><a href="profil_edit.html"><i class="glyph-icon flaticon-settings21"></i>Account Settings </a></li>
+                                <li class="dropdown-footer clearfix"><a href="javascript:;" class="toggle_fullscreen" title="Fullscreen"><i class="glyph-icon flaticon-fullscreen3"></i></a><a href="lockscreen.html" title="Lock Screen"><i class="glyph-icon flaticon-padlock23"></i></a><a href="../Home/Logout" title="Logout"><i class="fa fa-power-off"></i></a></li>
+                            </ul>
+                        </li>
+                        <!-- END USER DROPDOWN -->
+
+                    </ul>
+
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+
+        <!-- BEGIN contact information -->
+
+        <div class="tabcordion">
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="tab-content">
+                            <div class="tab-pane fade active in" id="tab1_1">
+                                <div class="col-xs-12 col-sm-12 col-lg-12">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 col-lg-12 align-center">
+                                            <h1>Add a New Contact</h1>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-lg-12 align-center">
+                                            @Html.ValidationSummary(true)
+                                        </div>
+                                        <div class="col-6 col-sm-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-label"><strong>Contact Name</strong> </label>
+                                                <div class="controls">
+                                                    @Html.TextBoxFor(model => model.ContactName, new { @class = "form-control input-sm", placeholder = "Contact Name", required = "" })
+                                                    @Html.ValidationMessageFor(model => model.ContactName,null , new { @class = "alert-danger dis-block" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-sm-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-label"><strong>Account Type</strong> </label>
+                                                @Html.DropDownListFor(model => model.AccountTypeId, new SelectList(ViewBag.AccountTypeMasterList, "AccountTypeId", "AccountTypeName"), new { @class = "selectpicker show-tick form-control", @data_live_search = "true"})
+                                                @Html.ValidationMessageFor(model => model.AccountTypeId,null , new { @class = "alert-danger dis-block" })
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+                                        <div class="col-6 col-sm-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-label"><strong>Account Name</strong> </label>
+                                                @Html.DropDownListFor(model => model.AccountMasterId, new SelectList(ViewBag.AccountMasterList, "AccountMasterId", "AccountMasterName"), new {id="AccountMasterId", @class = "selectpicker show-tick form-control", @data_live_search = "true" })
+                                                @Html.ValidationMessageFor(model => model.AccountMasterId,null , new { @class = "alert-danger dis-block" })
+                                                @Html.TextBoxFor(model => model.OtherAccountName, new {id="OtherAccountName", @class = "form-control input-sm", placeholder = "Account Name", style="display:none;" })
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-sm-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-label"><strong>Developer</strong> </label>
+                                                @Html.DropDownListFor(model => model.DeveloperId, new SelectList(ViewBag.DeveloperMasterList, "DeveloperId", "DeveloperName"), new {id="DeveloperId", @class = "selectpicker show-tick form-control", @data_live_search = "true" })
+                                                @Html.ValidationMessageFor(model => model.DeveloperId,null , new { @class = "alert-danger dis-block" })
+                                                @Html.TextBoxFor(model => model.OtherDeveloperName, new {id="OtherDeveloperName", @class = "form-control input-sm", placeholder = "Developer Name", style="display:none;" })
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-6 col-sm-6 col-lg-6">
+                                            <div class="form-group m-b-12">
+                                                <label class="form-label"><strong>City</strong> </label>
+                                                @Html.DropDownListFor(model => model.ProjectLocationId, new SelectList(ViewBag.CityList, "CityID", "CityName"), new { @class = "selectpicker show-tick form-control", @data_live_search = "true" })
+                                                @Html.ValidationMessageFor(model => model.ProjectLocationId,null , new { @class = "alert-danger dis-block" })
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-sm-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-label"><strong>Address</strong> </label>
+                                                <div class="controls">
+                                                    @Html.TextBoxFor(model => model.Address, new { @class = "form-control input-sm", placeholder = "Address", required = "" })
+                                                    @Html.ValidationMessageFor(model => model.Address,null , new { @class = "alert-danger dis-block" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-6 col-sm-6 col-lg-6">
+                                            <div class="form-group m-b-15">
+                                                <label class="form-label"><strong>Mobile Number</strong> </label>
+                                                @Html.TextBoxFor(model => model.MobileNumber, new { @class = "form-control input-sm", placeholder = "Mobile Number", required = "", Type = "number", })
+                                                @Html.ValidationMessageFor(model => model.MobileNumber,null , new { @class = "alert-danger dis-block" })
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-sm-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-label"><strong>Phone Number</strong> </label>
+                                                <div class="controls">
+                                                    @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control input-sm", placeholder = "Phone Number", required = "", type = "number" })
+                                                    @Html.ValidationMessageFor(model => model.PhoneNumber,null , new { @class = "alert-danger dis-block" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-6 col-sm-6 col-lg-6">
+                                            <div class="form-group m-b-12">
+                                                <label class="form-label"><strong>Email Address</strong> </label>
+                                                @Html.TextBoxFor(model => model.ContactEmailAddress, new { @class = "form-control input-sm", placeholder = "Email Address", required = "", type = "email" })
+                                                @Html.ValidationMessageFor(model => model.ContactEmailAddress,null , new { @class = "alert-danger dis-block" })
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-sm-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-label"><strong>Account Manager</strong> </label>
+                                                <div class="controls">
+                                                    @Html.DropDownListFor(model => model.AccountManagerId, new SelectList(ViewBag.AccountManagerMasterList, "AccountManagerId", "AccountManagerName"),"Select", new { @class = "selectpicker show-tick form-control", @data_live_search = "true" })
+                                                    @Html.ValidationMessageFor(model => model.AccountManagerId,null , new { @class = "alert-danger dis-block" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-6 col-sm-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-label"><strong>Status</strong> </label>
+                                                <div class="controls">
+                                                    @Html.DropDownListFor(model => model.ContactStatusId, new SelectList(ViewBag.ContactStatusList, "ContactStatusId", "ContactStatusName"), new { @class = "selectpicker show-tick form-control", @data_live_search = "true" })
+                                                    @Html.ValidationMessageFor(model => model.ContactStatusId)
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-sm-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-label"><strong>Budget</strong> </label>
+                                                <div class="controls">
+                                                    @Html.TextBoxFor(model => model.Budget, new { @class = "form-control input-sm", placeholder = "Budget", required = "", type = "number" })
+                                                    @Html.ValidationMessageFor(model => model.Budget,null , new { @class = "alert-danger dis-block" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-6 col-sm-6 col-lg-6">
+                                            <div class="form-group m-b-12">
+                                                <label class="form-label"><strong>Referal Source</strong> </label>
+                                                @Html.DropDownListFor(model => model.ReferralSourceId, new SelectList(ViewBag.ReferralSourcesList, "ReferralSourceId", "ReferralSourceName"), new { @class = "selectpicker show-tick form-control", @data_live_search = "true" })
+                                                @Html.ValidationMessageFor(model => model.ReferralSourceId,null , new { @class = "alert-danger dis-block" })
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+
+                                    </div>
+
+                                    <hr style="border-color: black;" />
+                                    <div class="col-12 col-sm-12 col-lg-12 align-center">
+                                        <h1>Reminder</h1>
+                                    </div>
+
+                                    <div class="col-6 col-sm-6 col-lg-8">
+                                        <div class="form-group m-b-0">
+                                            <label class="form-label"><strong>Follow Up</strong> </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-3 col-xs-3 col-sm-3 col-lg-3 p-l-0">
+                                                <div class="form-group">
+                                                    @Html.TextBoxFor(model => model.FollowUpDate, new { @class = "pickadate form-control picker__input" })
+                                                   
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-xs-3 col-sm-3 col-lg-3">
+                                                <div class="form-group">
+                                                    @Html.DropDownListFor(model => model.FollowUpHH, new SelectList(ViewBag.FollowUpHHList, "FollowUpHHId", "FollowUpHHName"), new { @class = "show-tick form-control" })
+                                                 
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-xs-3 col-sm-3 col-lg-3">
+                                                <div class="form-group">
+                                                    @Html.DropDownListFor(model => model.FollowUpMM, new SelectList(ViewBag.FollowUpMMList, "FollowUpMMId", "FollowUpMMName"), new { @class = "show-tick form-control" })
+                                                   
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-xs-3 col-sm-3 col-lg-3">
+                                                <div class="form-group">
+                                                    @Html.DropDownListFor(model => model.FollowUpAMPM, new List<SelectListItem>{
+                                                    new SelectListItem{Text="AM",Value="AM"},
+                                                    new SelectListItem{Text="PM",Value="PM"}}, new { @class = "show-tick form-control" })
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form-label"><strong>Type of conversation</strong> </label>
+                                            @Html.DropDownListFor(model => model.TypeofconversationId, new SelectList(ViewBag.TypeofconversationsList, "TypeofconversationId", "TypeofconversationName"), new { @class = "selectpicker show-tick form-control", @data_live_search = "true" })
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="col-6 col-sm-6 col-lg-6">
+                                        <div class="form-group m-b-0">
+                                            <label class="form-label m-b-0"><strong>Remind Me</strong> </label>
+                                        </div>
+                                        <div class="form-group">
+
+                                            <div class="col-md-4 col-xs-6 col-sm-6 col-lg-4 p-0">
+                                                <div class="row-fluid">
+                                                    <label>@Html.CheckBox("RemindMe2Hours") in 2 Hours</label>
+                                                   
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-xs-6 col-sm-6 col-lg-4 p-0">
+                                                <div class="row-fluid">
+                                                    <label>@Html.CheckBoxFor(model => model.RemindMeToDay, new { @class = "options" }) Today</label>
+                                                 
+                                                </div>
+                                            </div>
+                                          <div class="col-md-4 col-xs-6 col-sm-6 col-lg-4 p-0">
+                                                <div class="row-fluid">
+                                                    <label>@Html.CheckBoxFor(model => model.RemindMe2Days, new { @class = "options" }) 2 Days</label>
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="col-sm-12 col-lg-12">
+
+                                        <div class="form-group">
+                                            <label class="form-label"><strong>Comments</strong> </label>
+                                            <div class="controls">
+                                                @Html.TextAreaFor(model => model.Comments, new { @class = "form-control input-sm", placeholder = "Comments" })
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+
+
+
+
+
+
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 align-right m-t-20 m-b-30">
+                                        @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-primary" })
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6  col-lg-6 m-t-20">
+                                        <input type="submit" value="Create" class="btn btn-dark" />
+                                    </div>
+
+                                    <!--/span-->
+                                    <!--/span-->
+                                    <!--/span-->
+
+                                    <!--/row-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    }
+
+
+    <script src="~/assets/plugins/jquery111.js"></script>
+    <script src="~/assets/plugins/jquerymigrate121.js"></script>
+    <script src="~/assets/plugins/jqueryui/jqueryui1104min.js"></script>
+    <script src="~/assets/plugins/jquerymobile/jquerymobile142.js"></script>
+    <script src="~/assets/plugins/bootstrap/bootstrapmin.js"></script>
+    <script src="~/assets/plugins/bootstrapdropdown/bootstraphoverdropdown.js"></script>
+    <script src="~/assets/plugins/bootstrapselect/bootstrapselect.js"></script>
+    <script src="~/assets/plugins/mcustomscrollbar/jquerymCustomScrollbarconcatmin.js"></script>
+    <script src="~/assets/plugins/mmenu/js/jquerymmenuminall.js"></script>
+    <script src="~/assets/plugins/nprogress/nprogress.js"></script>
+    <script src="~/assets/plugins/chartssparkline/sparklinemin.js"></script>
+    <script src="~/assets/plugins/breakpoints/breakpoints.js"></script>
+    <script src="~/assets/plugins/numerator/jquerynumerator.js"></script>
+    <script src="~/assets/js/mailbox.js"></script>
+    <script src="~/assets/plugins/jquerycookiemin.js"></script>
+
+
+    <script src="~/assets/plugins/datetimepicker/jquerydatetimepicker.js"></script>
+    <script src="~/assets/plugins/bootstrapdatepicker/bootstrapdatepicker.js"></script>
+    <script src="~/assets/plugins/pickadate/picker.js"></script>
+    <script src="~/assets/plugins/pickadate/pickerdate.js"></script>
+    <script src="~/assets/plugins/pickadate/pickertime.js"></script>
+    <script src="~/assets/plugins/bootstrapswitch/bootstrapswitch.js"></script>
+    <script src="~/assets/plugins/bootstrapprogressbar/bootstrapprogressbar.js"></script>
+    <script src="~/assets/plugins/datatables/dynamic/jquerydataTablesmin.js"></script>
+    <script src="~/assets/plugins/datatables/dataTablesbootstrap.js"></script>
+    <script src="~/assets/plugins/datatables/dataTablestableTools.js"></script>
+    <script src="~/assets/plugins/datatables/tableeditable.js"></script>
+    <script src="~/assets/js/tabledynamic.js"></script>
+    <!-- END  PAGE LEVEL SCRIPTS -->
+    <!-- END MANDATORY SCRIPTS -->
+    <script src="~/assets/js/application.js"></script>
+    <!-- END  PAGE LEVEL SCRIPTS -->
+    <!-- END MANDATORY SCRIPTS -->
+
+    <script type="text/javascript">
+        $(window).on('load', function () {
+
+            $("input:checkbox").each(function () {
+                fixHiddenCheckField(this);
+            });
+
+            $("input:checkbox").change(function () {
+                fixHiddenCheckField(this);
+            });
+
+
+            if ($("#DeveloperId option:selected").text() == "Other")
+                $("#OtherDeveloperName").show();
+            else
+                $("#OtherDeveloperName").hide();
+
+
+            if ($("#AccountMasterId option:selected").text() == "Other")
+                $("#OtherAccountName").show();
+            else
+                $("#OtherAccountName").hide();
+
+        });
+
+        $("select#DeveloperId").change(function (evt) {
+
+            if ($("#DeveloperId option:selected").text() == "Other")
+                $("#OtherDeveloperName").show();
+            else {
+                $("#OtherDeveloperName").hide();
+                $("#OtherDeveloperName").val('');
+            }
+
+        });
+        $("select#AccountMasterId").change(function (evt) {
+
+            if ($("#AccountMasterId option:selected").text() == "Other")
+                $("#OtherAccountName").show();
+            else {
+                $("#OtherAccountName").hide();
+                $("#OtherAccountName").val('');
+            }
+
+        });
+
+        function fixHiddenCheckField(checkField) {
+            var name = $(checkField).attr("name");
+            var hiddenSelector = "input:hidden[name=" + name + "]";
+            var checkBoxesInListSelector = "input:checkbox[name=" + name + "]";
+            var checkedCheckBoxesInListSelector = "input:checked[name=" + name + "]";
+
+            if ($(checkedCheckBoxesInListSelector).length >= 1 || $(checkBoxesInListSelector).length > 1) {
+                $("input").remove(hiddenSelector);
+            }
+            else {
+                if ($(hiddenSelector).length == 0)
+                    $(checkField).parents("form").append("<input type='hidden' name='" + name + "' value='false' />");
+            }
+        }
+    </script>
+    
+
+</body>
+</html>

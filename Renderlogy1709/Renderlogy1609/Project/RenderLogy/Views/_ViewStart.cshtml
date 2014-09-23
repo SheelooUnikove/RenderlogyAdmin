@@ -1,0 +1,9 @@
+﻿@{
+    var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"].ToString();
+    if (controller == "PMOmanage")
+    {
+        Layout = "~/Views/Shared/_EngmntLayout.cshtml";
+    } 
+   
+     
+}

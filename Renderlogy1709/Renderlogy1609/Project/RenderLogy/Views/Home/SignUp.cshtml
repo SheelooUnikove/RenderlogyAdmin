@@ -1,0 +1,189 @@
+﻿@model RgyDAL.SignUp
+
+@{
+    ViewBag.Title = "Sign Up";
+}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js sidebar-large lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js sidebar-large lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js sidebar-large lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js sidebar-large">
+<!--<![endif]-->
+
+<head>
+    <!-- BEGIN META SECTION -->
+    <meta charset="utf-8">
+    <title>Renderlogy Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="" name="description" />
+    <meta content="themes-lab" name="author" />
+    <link rel="shortcut icon" href="~/assets/img/favicon.png">
+    <!-- END META SECTION -->
+    <!-- BEGIN MANDATORY STYLE -->
+    <script src="~/assets/plugins/modernizr/modernizr262respond110min.js"></script>
+
+<!-- BEGIN MANDATORY STYLE -->
+    <link href="~/assets/css/icons/iconsmin.css" rel="stylesheet">
+    <link href="~/assets/css/bootstrapmin.css" rel="stylesheet">
+    <link href="~/assets/css/pluginsmin.css" rel="stylesheet">
+    <link href="~/assets/plugins/bootstraploading/ladamin.css" rel="stylesheet">
+    <link href="~/assets/css/stylemin.css" rel="stylesheet">
+    <link href="~/assets/css/custom.css" rel="stylesheet">
+    <link href="~/assets/plugins/bootstrapselect/bootstrapselect.css" rel="stylesheet" />
+
+    <link href="#" rel="stylesheet" id="theme-color">
+    <!-- END  MANDATORY STYLE -->
+  
+</head>
+@using(Html.BeginForm("SignUp", "Home", new { id = "registerForm" }, FormMethod.Post, null)) 
+{
+    <body data-page="form_validation" class="login">
+        <!-- START SIGNUP BOX -->
+
+    <div class="container signup" id="login-block">
+        <div class="row">
+        <div class="col-md-2 col-lg-2"></div>
+            <div class="col-sm-12 col-md-8 col-xs-12 col-lg-8">
+                <div class="login-box login-signup clearfix animated flipInY">
+                    <div class="page-icon animated bounceInDown bg-blue">
+                        <img src="~/assets/img/account/register-icon.png" alt="Register icon" />
+                    </div>
+                    <div class="login-logo">
+                        <a href="#">
+                            <img src="~/assets/img/renderlogy_logo.png" alt="Renderlogy Logo" />
+                        </a>
+                    </div>
+                    <hr>
+                    <div class="login-form">
+                        <!-- Start Error box -->
+                        <div class="alert alert-danger hide">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <h4>Error!</h4>
+                            Your Error Message goes here
+                        </div>
+                       @* @if (ViewData.ModelState.Any(x => x.Value.Errors.Any())) {
+                         @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
+                        }*@
+
+                         @if (ViewBag.EmailDuplicate != null)
+                         {
+                         @Html.Label(ViewBag.EmailDuplicate as string, new { @class = "alert alert-danger dis-block" })                          
+                         } 
+                        <!-- End Error box -->
+                        <form action="#" method="get" id = "registerForm"  >
+                         <div class="col-sm-12 col-md-6 col-xs-12 col-lg-6"> @*<input type="text" placeholder="Name of Design House" class="input-field" required/>*@
+                            @Html.TextBoxFor(model => model.DesignHouseName, new { @class = "input-field ", @placeholder = "Name of Design House", required = "" })
+                         </div>
+                         <div class="col-sm-12 col-md-6 col-xs-12 col-lg-6">@* <input type="text" placeholder="Name of the Account Manager" class="input-field" required/>*@
+                             @Html.TextBoxFor(model => model.FullName, new { @class = "input-field ", @placeholder = "Name of the Account Manager", required = "" })
+                         </div>
+                         <div class="col-sm-12 col-md-6 col-xs-12 col-lg-6"> @*<input type="email" placeholder="Email Id of account manager " class="input-field" required/>*@
+                             @Html.TextBoxFor(model => model.EmailId, new { @class = "input-field ",@type="email",  @placeholder = "Email Id of account manager", required = "" })
+                         </div>
+                         <div class="col-sm-12 col-md-6 col-xs-12 col-lg-6"> @*<input type="number" placeholder="Phone Number of account manager" class="input-field" required/>*@
+                               @Html.TextBoxFor(model => model.PhoneNo, new { @class = "input-field ",@type="number",  @placeholder = "Phone Number of account manage", required = "" })
+                         </div>
+                         <div class="col-sm-12 col-md-6 col-xs-12 col-lg-6"> @*<input type="text" placeholder="Current Official address of the design house" class="input-field" required/>*@
+                              @Html.TextBoxFor(model => model.Address, new { @class = "input-field ", @placeholder = "Current Official address of the design house", required = "" })
+                         </div>
+                         <div class="col-sm-6 col-md-3 col-xs-6 col-lg-3"> 
+                              
+                             @*<select id="bs3Select" class="selectpicker show-tick form-control" data-live-search="true">
+                        <option>cow</option>
+                        <option>bull</option>
+                        <option class="get-class" disabled>ox</option>
+                        <optgroup label="test" data-subtext="another test" data-icon="icon-ok">
+                            <option>ASD</option>
+                            <option selected>Bla</option>
+                            <option>Ble</option>
+                        </optgroup>
+                    </select>*@
+                              @Html.DropDownListFor(model => model.State, new SelectList(ViewBag.StateList, "StateID", "StatName"), new {@class="selectpicker show-tick form-control",@data_live_search="true",required = "", onchange="this.form.action='/Home/GetCity';this.form.submit();" })
+                              @Html.ValidationMessageFor(model => model.State,null , new { @class = "alert-danger dis-block" })
+                         </div>
+                         <div class="col-sm-6 col-md-3 col-xs-6 col-lg-3"> 
+                              @Html.DropDownListFor(model => model.City, new SelectList(ViewBag.CityList, "CityId", "CityName"), new {@class="selectpicker show-tick form-control",required = "",@data_live_search="true" }) 
+                            @*  @Html.ValidationMessageFor(model => model.City,null, new { @class = "alert-danger dis-block" })
+                              <select id="bs3Select" class="selectpicker show-tick form-control" data-live-search="true">
+                        <option>cow</option>
+                        <option>bull</option>
+                        <option>ox</option>
+                        <optgroup label="test" data-subtext="another test" data-icon="icon-ok">
+                            <option>ASD</option>
+                            <option selected>Bla</option>
+                            <option>Ble</option>
+                        </optgroup>
+                    </select>*@
+
+                         </div>
+                            <div class="clearfix"></div>
+                         <div class="col-sm-12 col-md-6 col-xs-12 col-lg-6">
+                              @Html.TextBoxFor(model => model.NoOfEmployeeDesHouse, new { @class = "input-field ", @placeholder = "No of employed personnel in the design house", required = "" })
+                              @*<input type="text" placeholder="# of employed personnel in the design house" class="input-field" required/>*@
+                         </div>
+                         <div class="col-sm-12 col-md-6 col-xs-12 col-lg-6"> @*<input type="password" placeholder="Password" class="input-field flt_rht" required/>*@
+                                 @Html.PasswordFor(model => model.Password, new { Value = @ViewBag.Password, @class = "input-field ", @placeholder = "password", required = "", minlength="6",  pattern=".{6,10}" })
+                              @* @Html.ValidationMessageFor(model => model.Password,null, new { @class = "alert-danger dis-block" })*@
+                         </div>
+                         <div class="col-sm-12 col-md-6 col-xs-12 col-lg-6">
+                            @*  <input type="password" placeholder="Confirm Password" class="input-field flt_lft" required/>   *@
+                                    @Html.PasswordFor(model => model.ConfirmPassword, new { Value = @ViewBag.ConfirmPassword, @class = "input-field ", @placeholder = "Confirm password", required = "", minlength="6",  onchange="form.Password.pattern = this.value;"  })
+                                 @* @Html.ValidationMessageFor(model => model.ConfirmPassword,null, new { @class = "alert-danger dis-block" })*@
+                         </div>
+                        </form> 
+                         
+                            <div class="clearfix"></div>
+                            <button id="submitUp" name="submitUp" type="submit" class="btn btn-primary m-auto dis-block" data-style="expand-left"><span class="ladda-label">Sign Up</span></button>
+                           @* <button id="submit-form" type="submit" class="btn btn-primary ladda-button" data-style="expand-left"><span class="ladda-label">Sign Up</span></button>*@
+                        
+                        <div class="login-links">
+                             @Html.ActionLink("Forgot password?", "ForgotPassword")
+                            
+                            @*<a href="password_forgot.html">Forgot password?</a>*@
+                            <br>
+                                <a href="../Home/SignIn">Already have an account? <strong>Sign In</strong></a>
+                           @* @Html.ActionLink("Already have an account? Sign In", "SignIn")  <a href="@Url.Action("Page","Site", new { id = Model.Id, @Type = "test" })"> <span class="box5">Click anywhere in this box</span> </a>*@
+                           @* <a href="@Url.Action("Already have an account?","SignIn", new { @Type = "test" })"> <span class="box5">Sign In</span> </a>*@
+                                @*@Html.ActionLink("Already have an account? Sign In", "SignIn")*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="col-md-2 col-lg-2"></div>
+        </div>
+    </div>
+
+    <!-- END SIGNUP BOX -->
+    <!-- BEGIN MANDATORY SCRIPTS -->
+
+    <script src="~/assets/plugins/jquery111.js"></script>
+    <script src="~/assets/plugins/jquerymigrate121.js"></script>
+    <script src="~/assets/plugins/jqueryui/jqueryui1104min.js"></script>
+    <script src="~/assets/plugins/jquerymobile/jquerymobile142.js"></script>
+    <script src="~/assets/plugins/bootstrap/bootstrapmin.js"></script>
+    <script src="~/assets/plugins/jquerycookiemin.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/bootstrapselect/bootstrapselect.js"></script>
+    <!-- END MANDATORY SCRIPTS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->   <script src="~/assets/plugins/parsley/parsley.min.js"></script>
+    <script src="~/assets/plugins/parsley/parsley.extend.js"></script>
+    <script src="~/assets/plugins/backstretch/backstretchmin.js"></script>
+   @* <script src="~/assets/plugins/bootstrap-loading/lada.min.js"></script>*@
+    <script src="~/assets/js/account.js"></script>
+      
+    <script type="text/javascript">
+        $(window).on('load', function () {
+
+            $('.selectpicker').selectpicker({
+                
+            });
+
+            // $('.selectpicker').selectpicker('hide');
+        });
+    </script>
+     
+    <!-- END PAGE LEVEL SCRIPTS -->
+</body>
+}
+</html>

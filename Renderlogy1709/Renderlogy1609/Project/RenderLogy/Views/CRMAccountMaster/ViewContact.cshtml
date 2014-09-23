@@ -1,0 +1,372 @@
+﻿@model RgyDAL.CRMAccountMaster
+@{
+    ViewBag.Title = "Renderlogy";
+}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js sidebar-large lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js sidebar-large lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js sidebar-large lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js sidebar-large">
+<!--<![endif]-->
+
+<head>
+    <!-- BEGIN META SECTION -->
+    <meta charset="utf-8">
+    <title>Renderlogy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="" name="description" />
+    <meta content="themes-lab" name="author" />
+    <link rel="shortcut icon" href="~/assets/img/favicon.png">
+    <!-- END META SECTION -->
+    <!-- BEGIN MANDATORY STYLE -->
+    <link href="~/assets/css/icons/iconsmin.css" rel="stylesheet">
+    <link href="~/assets/css/bootstrapmin.css" rel="stylesheet">
+    <link href="~/assets/css/pluginsmin.css" rel="stylesheet">
+    <link href="~/assets/css/stylemin.css" rel="stylesheet">
+    <link href="~/assets/css/custom.css" rel="stylesheet">
+    <link href="#" rel="stylesheet" id="theme-color">
+    <!-- END  MANDATORY STYLE -->
+    <!-- BEGIN PAGE LEVEL STYLE -->
+    <link href="~/assets/plugins/datetimepicker/jquerydatetimepicker.css" rel="stylesheet">
+    <link href="~/assets/plugins/pickadate/themes/default.css" rel="stylesheet">
+    <link href="~/assets/plugins/pickadate/themes/defaultdate.css" rel="stylesheet">
+    <link href="~/assets/plugins/pickadate/themes/defaulttime.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/assets/plugins/datatables/dataTables.css">
+    <link rel="stylesheet" href="~/assets/plugins/datatables/dataTablestableTools.css">
+    <!-- END PAGE LEVEL STYLE -->
+    <script src="~/assets/plugins/modernizr/modernizr262-respond110min.js"></script>
+</head>
+
+<body>
+
+    <!-- Static navbar -->
+    <div class="navbar navbar-default navbar-static-top nav_new" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img src="~/assets/img/renderlogy_logo.png" /></a>
+            </div>
+            <div class="navbar-collapse collapse navbar-right m-t-15">
+                <ul class="nav navbar-nav navbar-default">
+                    <li class="active"><a href="#">DASHBOARD</a></li>
+                    <li><a href="#about">PMO</a></li>
+                    <li><a href="#contact">CALENDER</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right header-menu">
+
+                    <!-- BEGIN NOTIFICATION DROPDOWN -->
+                    <li class="dropdown" id="notifications-header"><a href="#" class="dropdown-toggle c-dark" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"><i class="glyph-icon flaticon-notifications"></i><span class="badge badge-danger badge-header">6</span> </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header clearfix">
+                                <p class="pull-left">Notifications</p>
+                            </li>
+                            <li>
+                                <ul class="dropdown-menu-list withScroll" data-height="220">
+                                    <li><a href="#"><i class="fa fa-star p-r-10 f-18 c-orange"></i>Steve have rated your photo <span class="dropdown-time">Just now</span> </a></li>
+                                    <li><a href="#"><i class="fa fa-heart p-r-10 f-18 c-red"></i>John added you to his favs <span class="dropdown-time">15 mins</span> </a></li>
+                                    <li><a href="#"><i class="fa fa-file-text p-r-10 f-18"></i>New document available <span class="dropdown-time">22 mins</span> </a></li>
+                                    <li><a href="#"><i class="fa fa-picture-o p-r-10 f-18 c-blue"></i>New picture added <span class="dropdown-time">40 mins</span> </a></li>
+                                    <li><a href="#"><i class="fa fa-bell p-r-10 f-18 c-orange"></i>Meeting in 1 hour <span class="dropdown-time">1 hour</span> </a></li>
+                                    <li><a href="#"><i class="fa fa-bell p-r-10 f-18"></i>Server 5 overloaded <span class="dropdown-time">2 hours</span> </a></li>
+                                    <li><a href="#"><i class="fa fa-comment p-r-10 f-18 c-gray"></i>Bill comment your post <span class="dropdown-time">3 hours</span> </a></li>
+                                    <li><a href="#"><i class="fa fa-picture-o p-r-10 f-18 c-blue"></i>New picture added <span class="dropdown-time">2 days</span> </a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-footer clearfix"><a href="#" class="pull-left">See all notifications</a> <a href="#" class="pull-right"><i class="fa fa-cog"></i></a></li>
+                        </ul>
+                    </li>
+                    <!-- END NOTIFICATION DROPDOWN -->
+                    <!-- BEGIN USER DROPDOWN -->
+                    <li class="dropdown" id="user-header"><a href="#" class="dropdown-toggle c-dark" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        <img src="~/assets/img/avatars/avatar2.png" alt="user avatar" width="30" class="p-r-5">
+                        <span class="username">Bob Nilson</span> <i class="fa fa-angle-down p-r-10"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="profil.html"><i class="glyph-icon flaticon-account"></i>My Profile </a></li>
+                            <li><a href="calendar.html"><i class="glyph-icon flaticon-calendar"></i>My Calendar </a></li>
+                            <li><a href="profil_edit.html"><i class="glyph-icon flaticon-settings21"></i>Account Settings </a></li>
+                            <li class="dropdown-footer clearfix"><a href="javascript:;" class="toggle_fullscreen" title="Fullscreen"><i class="glyph-icon flaticon-fullscreen3"></i></a><a href="lockscreen.html" title="Lock Screen"><i class="glyph-icon flaticon-padlock23"></i></a><a href="login.html" title="Logout"><i class="fa fa-power-off"></i></a></li>
+                        </ul>
+                    </li>
+                    <!-- END USER DROPDOWN -->
+
+                </ul>
+
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+
+    <!-- BEGIN contact information -->
+
+    <div class="tabcordion">
+        <div class="container-fluid bg-gray-light p-t-20">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5"></div>
+                    <div>
+                        <ul id="myTab" class="nav nav-tabs">
+                            <li class="active"><a href="#tab1_1" data-toggle="tab">Contact Information</a></li>
+                            <li class=""><a href="#tab1_2" data-toggle="tab">History</a></li>
+
+                        </ul>
+                    </div>
+                    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="tab-content">
+                        <div class="tab-pane fade active in" id="tab1_1">
+                            <div class="col-xs-12 col-sm-12 col-lg-12">
+                                <div class="row">
+                                    <div class="col-12 col-sm-12 col-lg-12 align-center">
+                                        <h1>Contact Information</h1>
+                                    </div>
+                                     <div class="row">
+                                    <div class="col-6 col-sm-6 col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-label"><strong>Contact Name</strong> </label><br />
+                                            <div class="form-control input-sm">
+                                                @Html.HiddenFor(model => model.ContactId)
+                                                @Html.DisplayFor(model => model.ContactName, new { @class = "form-control input-sm" })
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-label"><strong>Developer</strong> </label><br />
+                                             <div class="form-control input-sm">
+                                            @Html.DisplayFor(model => model.DeveloperName,  new { @class = "form-control input-sm"})
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="col-6 col-sm-6 col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-label"><strong>Account Name</strong> </label><br />
+                                             <div class="form-control input-sm">
+                                            @Html.DisplayFor(model => model.AccountMasterName, new { @class = "form-control input-sm"})
+                                                 </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-label"><strong>Account Type</strong> </label><br />
+                                             <div class="form-control input-sm">
+                                            @Html.DisplayFor(model => model.AccountTypeName, new { @class = "form-control input-sm"})
+                                                 </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="col-6 col-sm-6 col-lg-6">
+                                        <div class="form-group m-b-12">
+                                            <label class="form-label"><strong>City</strong> </label><br />
+                                             <div class="form-control input-sm">
+                                            @Html.DisplayFor(model => model.ProjectLocationCity, new { @class = "form-control input-sm"})
+                                                 </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-label"><strong>Address</strong> </label><br />
+                                            <div class="form-control input-sm">
+                                                @Html.DisplayFor(model => model.Address, new { @class = "form-control input-sm" })                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="col-6 col-sm-6 col-lg-6">
+                                        <div class="form-group m-b-15">
+                                            <label class="form-label"><strong>Mobile Number</strong> </label><br />
+                                             <div class="form-control input-sm">
+                                            @Html.DisplayFor(model => model.MobileNumber, new { @class = "form-control input-sm"})
+                                                 </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-label"><strong>Phone Number</strong> </label><br />
+                                            <div class="form-control input-sm">
+                                                @Html.DisplayFor(model => model.PhoneNumber, new { @class = "form-control input-sm" })                                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="col-6 col-sm-6 col-lg-6">
+                                        <div class="form-group m-b-12">
+                                            <label class="form-label"><strong>Email Address</strong> </label><br />
+                                             <div class="form-control input-sm">
+                                            @Html.DisplayFor(model => model.ContactEmailAddress, new { @class = "form-control input-sm"}) 
+                                                 </div>                                         
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-label"><strong>Account Manager</strong> </label><br />
+                                            <div class="form-control input-sm">
+                                                @Html.DisplayFor(model => model.AccountManagerName, new { @class = "form-control input-sm"})                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="col-6 col-sm-6 col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-label"><strong>Status</strong> </label><br />
+                                            <div class="form-control input-sm">
+                                                @Html.DisplayFor(model => model.ContactStatusName,new { @class = "form-control input-sm"})                                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-label"><strong>Budget</strong> </label><br />
+                                            <div class="form-control input-sm">
+                                                @Html.DisplayFor(model => model.Budget, new { @class = "form-control input-sm"})
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="col-6 col-sm-6 col-lg-6">
+                                        <div class="form-group m-b-12">
+                                            <label class="form-label"><strong>Referal Source</strong> </label><br />
+                                             <div class="form-control input-sm">
+                                            @Html.DisplayFor(model => model.ReferralSourceName, new { @class = "form-control input-sm"})          
+                                                 </div>                                  
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6 col-sm-6 col-lg-6" style="display:none;">
+                                        <div class="form-group">
+                                            <label class="form-label"><strong>Type of conversation</strong> </label><br />
+                                             <div class="form-control input-sm">
+                                            @Html.DisplayFor(model => model.TypeofconversationName, new { @class = "form-control input-sm"})
+                                           </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>                                    
+                                    </div>    
+                                    <div class="clearfix"></div>
+                                    <div class="col-xs-4 col-sm-4 col-md-4  col-lg-5 align-right m-t-20 m-b-30">
+                                         @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-4  col-lg-2 m-t-20 align-center">
+                                        @Html.ActionLink("Edit Information", "Edit", new { id=Model.ContactId }, new { @class = "btn btn-dark" })
+                                    </div>                                    
+                                    <!--/span-->
+                                    <!--/span-->
+                                    <!--/span-->
+                                </div>
+                                <!--/row-->
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tab1_2">
+                            <div class="container m-t-30">
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading bg-gray">
+                                                <h3 class="panel-title"><strong>History </strong></h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="row m-0">
+                                                    <div class="col-md-12 col-sm-12 col-xs-12 table-responsive filter-right">
+
+
+
+                                                       <table class="table table-hover table-dynamic">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Event Date</th>
+                                                                    <th>Time</th>
+                                                                    <th class='hidden-350'>Owner</th>
+                                                                    <th class='hidden-1024'>Event</th>
+                                                                    <th class='hidden-480'>Call Recording Date</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @foreach (var item in ViewBag.FollowAlerts)
+                                                                {
+                                                                <tr>
+                                                                    <td>@Convert.ToDateTime(@item.FollowUpDate).ToString("dd MMM, yyyy")</td>
+                                                                    <td>@item.FollowUpHH @item.FollowUpMM @item.FollowUpAMPM </td>
+                                                                    <td class='hidden-350'>SalePerson Name</td>
+                                                                    <td class='hidden-1024'>@item.Comments</td>
+                                                                    <td class='hidden-480'>@Convert.ToDateTime(@item.FollowUpDate).ToString("dd MMM, yyyy")</td>
+                                                                </tr>                                                             
+                                                                }
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <!-- BEGIN MANDATORY SCRIPTS -->
+       <script src="~/assets/plugins/jquery111.js"></script>
+    <script src="~/assets/plugins/jquerymigrate121.js"></script>
+    <script src="~/assets/plugins/jqueryui/jqueryui1104min.js"></script>
+    <script src="~/assets/plugins/jquerymobile/jquerymobile142.js"></script>
+    <script src="~/assets/plugins/bootstrap/bootstrapmin.js"></script>
+    <script src="~/assets/plugins/bootstrapdropdown/bootstraphoverdropdown.js"></script>
+    <script src="~/assets/plugins/bootstrapselect/bootstrapselect.js"></script>
+    <script src="~/assets/plugins/mcustomscrollbar/jquerymCustomScrollbarconcatmin.js"></script>
+    <script src="~/assets/plugins/mmenu/js/jquerymmenuminall.js"></script>
+    <script src="~/assets/plugins/nprogress/nprogress.js"></script>
+    <script src="~/assets/plugins/chartssparkline/sparklinemin.js"></script>
+    <script src="~/assets/plugins/breakpoints/breakpoints.js"></script>
+    <script src="~/assets/plugins/numerator/jquerynumerator.js"></script>
+    <script src="~/assets/js/mailbox.js"></script>
+    <script src="~/assets/plugins/jquerycookiemin.js"></script>
+
+   
+    <script src="~/assets/plugins/datetimepicker/jquerydatetimepicker.js"></script>
+    <script src="~/assets/plugins/bootstrapdatepicker/bootstrapdatepicker.js"></script>
+    <script src="~/assets/plugins/pickadate/picker.js"></script>
+    <script src="~/assets/plugins/pickadate/pickerdate.js"></script>
+    <script src="~/assets/plugins/pickadate/pickertime.js"></script>
+    <script src="~/assets/plugins/bootstrapswitch/bootstrapswitch.js"></script>
+    <script src="~/assets/plugins/bootstrapprogressbar/bootstrapprogressbar.js"></script>
+    <script src="~/assets/plugins/datatables/dynamic/jquerydataTablesmin.js"></script>
+    <script src="~/assets/plugins/datatables/dataTablesbootstrap.js"></script>
+    <script src="~/assets/plugins/datatables/dataTablestableTools.js"></script>
+    <script src="~/assets/plugins/datatables/tableeditable.js"></script>
+    <script src="~/assets/js/tabledynamic.js"></script>
+    <!-- END  PAGE LEVEL SCRIPTS -->
+    <!-- END MANDATORY SCRIPTS -->
+    <script src="~/assets/js/application.js"></script>
+</body>
+</html>

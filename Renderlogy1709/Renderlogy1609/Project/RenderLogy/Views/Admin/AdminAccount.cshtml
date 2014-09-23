@@ -1,0 +1,600 @@
+﻿@model IEnumerable <RgyDAL.SignUp>
+
+@{
+    ViewBag.Title = "AdminAccount";
+}
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js sidebar-large lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js sidebar-large lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js sidebar-large lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js sidebar-large">
+<!--<![endif]-->
+
+<head>
+<!-- BEGIN META SECTION -->
+<meta charset="utf-8">
+<title>Renderlogy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="" name="description" />
+<meta content="themes-lab" name="author" />
+    <link rel="shortcut icon" href="~/assets/img/favicon.png">
+<!-- END META SECTION -->
+<!-- BEGIN MANDATORY STYLE -->
+<link href="~/assets/css/icons/iconsmin.css" rel="stylesheet">
+<link href="~/assets/css/bootstrapmin.css" rel="stylesheet">
+<link href="~/assets/css/pluginsmin.css" rel="stylesheet">
+<link href="~/assets/css/stylemin.css" rel="stylesheet">
+<link href="~/assets/css/select2bootstrap.css" rel="stylesheet">
+<link href="~/assets/css/custom.css" rel="stylesheet">
+<link href="#" rel="stylesheet" id="theme-color">
+<!-- END  MANDATORY STYLE -->
+ <!-- BEGIN PAGE LEVEL STYLE -->
+<link href="~/assets/plugins/modal/css/component.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/assets/plugins/datatables/dataTables.css">
+    <link rel="stylesheet" href="~/assets/plugins/datatables/dataTablestableTools.css">
+    <!-- END PAGE LEVEL STYLE -->
+    <script src="~/assets/plugins/modernizr/modernizr262respond110min.js"></script>
+</head>
+
+<body>
+
+    <!-- Static navbar -->
+    <div class="navbar navbar-default navbar-static-top nav_new" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span> 
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+
+          </button>
+                <a class="navbar-brand" href="#">
+                    <img src="~/assets/img/renderlogy_logo.png" /></a>
+        </div>
+        <div class="navbar-collapse collapse navbar-right m-t-15">
+          <ul class="nav navbar-nav navbar-default">
+            <li><a href="#">DASHBOARD</a></li>
+            
+            <li class="active"><a href="#">ACCOUNT ADMINISTRATION</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right header-menu">
+       
+        <!-- BEGIN NOTIFICATION DROPDOWN -->
+        <li class="dropdown" id="notifications-header"> <a href="#" class="dropdown-toggle c-dark" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> <i class="glyph-icon flaticon-notifications"></i> <span class="badge badge-danger badge-header">6</span> </a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-header clearfix">
+              <p class="pull-left">Notifications</p>
+            </li>
+            <li>
+              <ul class="dropdown-menu-list withScroll" data-height="220">
+                <li> <a href="#"> <i class="fa fa-star p-r-10 f-18 c-orange"></i> Steve have rated your photo <span class="dropdown-time">Just now</span> </a> </li>
+                <li> <a href="#"> <i class="fa fa-heart p-r-10 f-18 c-red"></i> John added you to his favs <span class="dropdown-time">15 mins</span> </a> </li>
+                <li> <a href="#"> <i class="fa fa-file-text p-r-10 f-18"></i> New document available <span class="dropdown-time">22 mins</span> </a> </li>
+                <li> <a href="#"> <i class="fa fa-picture-o p-r-10 f-18 c-blue"></i> New picture added <span class="dropdown-time">40 mins</span> </a> </li>
+                <li> <a href="#"> <i class="fa fa-bell p-r-10 f-18 c-orange"></i> Meeting in 1 hour <span class="dropdown-time">1 hour</span> </a> </li>
+                <li> <a href="#"> <i class="fa fa-bell p-r-10 f-18"></i> Server 5 overloaded <span class="dropdown-time">2 hours</span> </a> </li>
+                <li> <a href="#"> <i class="fa fa-comment p-r-10 f-18 c-gray"></i> Bill comment your post <span class="dropdown-time">3 hours</span> </a> </li>
+                <li> <a href="#"> <i class="fa fa-picture-o p-r-10 f-18 c-blue"></i> New picture added <span class="dropdown-time">2 days</span> </a> </li>
+              </ul>
+            </li>
+            <li class="dropdown-footer clearfix"> <a href="#" class="pull-left">See all notifications</a> <a href="#" class="pull-right"> <i class="fa fa-cog"></i> </a> </li>
+          </ul>
+        </li>
+        <!-- END NOTIFICATION DROPDOWN --> 
+        <!-- BEGIN USER DROPDOWN -->
+        <li class="dropdown" id="user-header"> <a href="#" class="dropdown-toggle c-dark" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> <img src="~/assets/img/avatars/avatar2.png" alt="user avatar" width="30" class="p-r-5"/> <span class="username"> @ViewBag.logged @*Bob Nilson*@</span> <i class="fa fa-angle-down p-r-10"></i> </a>
+          <ul class="dropdown-menu">
+            <li> <a href="profil.html"> <i class="glyph-icon flaticon-account"></i> My Profile </a> </li>
+            <li> <a href="calendar.html"> <i class="glyph-icon flaticon-calendar"></i> My Calendar </a> </li>
+            <li> <a href="profil_edit.html"> <i class="glyph-icon flaticon-settings21"></i> Account Settings </a> </li>
+            <li class="dropdown-footer clearfix"> <a href="javascript:;" class="toggle_fullscreen" title="Fullscreen"> <i class="glyph-icon flaticon-fullscreen3"></i> </a> <a href="lockscreen.html" title="Lock Screen"> <i class="glyph-icon flaticon-padlock23"></i> </a> <a href="../Home/Logout" title="Logout"> <i class="fa fa-power-off"></i> </a> </li>
+          </ul>
+        </li>
+        <!-- END USER DROPDOWN --> 
+        
+      </ul>
+           
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+<!-- BEGIN contact information -->         
+      
+  <div class="tabcordion">
+  <div class="container-fluid bg-gray-light p-t-20">
+  <div class="container">
+  <div class="row">
+  <div class="col-md-4 col-lg-4"></div>
+  <div class=""><ul id="myTab" class="nav nav-tabs">
+                            <li class="active"><a href="#tab1_1" data-toggle="tab">Team Members</a></li>
+                            <li class=""><a href="#tab1_2" data-toggle="tab">Settings</a></li>
+                            <li class=""><a href="#tab1_3" data-toggle="tab">Manage Master Schedule Template</a></li>
+                             
+                        </ul></div>  <div class="col-md-4 col-lg-4"></div>
+  </div>
+  </div>
+  </div>
+            <div class="container-fluid">
+  <div class="row">
+  <div class="tab-content">
+                            <div class="tab-pane fade active in" id="tab1_1">
+                                 <ul id="tabinTab" class="nav nav-tabs container">
+                            <li class="active"><a href="#tab2_1" data-toggle="tab">Team Members</a></li>
+                            <li class=""><a href="#tab2_2" onclick="InviteNewMembersTab()" data-toggle="tab">Invite New Members</a></li>
+                              
+                        </ul>
+                      
+                                  <div class="tab-content p-0">
+                           <div class="tab-pane fade active in" id="tab2_1">  <!-- BEGIN MAIN CONTENT -->
+       <div class="container">
+             
+            <div class="row">
+                <div class="col-md-12 col-lg-12 p-l-0">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                                     <div class="row">
+                                                                    <div class="col-md-4">
+                                                                        <input type="text" id="member-finder" class="form-control" placeholder="Search a member by Role or Email">
+                                                                    </div>
+                                                                    <div class="col-md-8 align-right m-t-10">
+                                                                        <span class="c-gray m-r-20">Sort by
+                                        <a href="" id="idSortName" class="m-l-10 m-r-5">Name</a>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                       @* <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input type="text" id="member-finder" class="form-control" placeholder="Search a member...">
+                                </div>
+                                <div class="col-md-8 align-right m-t-10">
+                                    <span class="c-gray m-r-20">Filter by
+                                        <a href="#" class="m-l-10 m-r-5">Name</a> 
+                                        <span class="c-gray-light">/</span> 
+                                        <a href="#" class="m-l-5 m-r-5">Role</a> 
+                                        <span class="c-gray-light">/</span> 
+                                        <a href="#" class="c-blue m-l-5">Email</a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>*@
+                                                <div class="panel-body">
+                                                    <div class="row">
+                                                          <div class="customtable">        
+
+                                    <table class="table table-dynamic">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                                        @foreach (var item in Model)
+                                                        {
+                                                             <tr>
+                                                    <td>
+                                                            <div class="col-md-12 member-entry">
+                                                                <div class="row member">
+                                                                    <div class="col-xs-3">
+                                                                        <img src="~/assets/img/avatars/avatar1_big.png" alt="avatar 1" class="pull-left img-responsive">
+                                                                    </div>
+                                                                    <div class="col-xs-9">
+                                                                        <h3 class="m-t-0 member-name"><strong>@Html.DisplayFor(model => item.FullName)</strong></h3>
+                                                                        <div class="pull-left">
+                                                                            <p><i class="fa fa-envelope-o c-gray-light p-r-10"></i>@Html.DisplayFor(model => item.EmailId) </p>
+                                                                            <p></p>
+                                                                        </div>
+                                                                        <div class="pull-right align-right">
+                                                                            <p  id="idName_@Html.DisplayFor(model => item.SignUpId)"><i class="fa fa-mail-forward c-gray-light p-r-10"></i>@Html.DisplayFor(model => item.FullName) </p>
+                                                                            <p>
+                                                                                <div class="dropdown" id="user-header">
+                                                                                    @foreach (var itemVal in item.Roles)
+                                                                                    {
+                                                                                        <a href="#" class="dropdown-toggle c-dark" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                                                                            <img src="~/assets/img/avatars/avatar2.png" alt="user avatar" width="30" class="p-r-5" />
+                                                                                            <span class="username" id="idUserRole_@Html.DisplayFor(model => item.SignUpId)">@Html.DisplayFor(model => itemVal.Name)</span> <i class="fa fa-angle-down p-r-10"></i></a> 
+                                                                                    }
+                                                                                    <ul class="dropdown-menu">
+                                                                                        <li><a href="javascript:void(0);" class="align-left btn-effect"  onclick="MakeAdmin(@Html.DisplayFor(model => item.SignUpId));" data-modal="modal-19">Make an Admin</a> </li>
+                                                                                        <li><a href="javascript:void(0);" class="align-left btn-effect" data-modal="modal-20"  onclick="ChangeRole(@Html.DisplayFor(model => item.SignUpId));">Change Role</a> </li>
+                                                                                        <li><a href="javascript:void(0);" class="align-left btn-effect" data-modal="modal-21" onclick="DisableAccount(@Html.DisplayFor(model => item.SignUpId));">Disable Account </a></li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div> 
+                                                           </td>
+                                                </tr>  
+                                                        }
+                                              </tbody>
+                                    </table>
+                                                            
+                                                          </div>  
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                     @*   <div class="col-5m-10">
+                                            <div class="Center">
+
+                                                @Html.pageListPager(Model,Page=>Url.Action("All", new{Page, pageSize=Model.PageSize}))
+                                                showing @Model, FirstItemOnPage to @Medel.LastItemOnPage of @Model.TotalItemCount Clients
+                                                
+                                            </div>
+
+                                        </div>*@
+                                      @*  <div class="m-t-30 align-center">
+                                            <ul class="pagination">
+                                                <li><span><i class="fa fa-angle-left c-gray-light"></i></span></li>
+                                                <li class="active"><span>1</span></li>
+                                                <li><a href="#">2</a></li>
+                                                <li><a href="#">3</a></li>
+                                                <li><span>...</span></li>
+                                                <li><a href="#">9</a></li>
+                                                <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                                            </ul>
+                                        </div>*@
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="tab2_2">
+                                <div class="container">
+
+                                                <div class="row">
+                                                    <div class="col-md-12 col-lg-12 p-l-0">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                <div class="row">
+                                                                    <div class="col-md-4">
+                                                                        <input type="text" id="member-finderI" class="form-control" placeholder="Search a member by Role or Email">
+                                                                    </div>
+                                                                    <div class="col-md-8 align-right m-t-10">
+                                                                        <span class="c-gray m-r-20">Sort by
+                                        <a href="#" class="m-l-10 m-r-5">Name</a>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="panel-body">
+                                                                <div class="row">
+
+                                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 member-entry p-0">
+                                                  <div class="customtable">        
+
+                                    <table class="table table-dynamic">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                            @foreach (var member in ViewBag.NoAciveUser)
+                                                            {
+                                                <tr>
+                                                    <td>    <div class="row member p-0 memberadd">
+                                                                    <label id="id_@member.SignUpId" onclick="CheckBoxCheck(this,@member.SignUpId);" >
+                                                                        <input type="checkbox">
+                                                                        @*checked onclick="CheckBoxCheck();"*@
+                                                                        <div class="col-xs-3">
+                                                                            <img src="~/assets/img/avatars/avatar1_big.png" alt="avatar 1" class="pull-left img-responsive">
+                                                                        </div>
+                                                                        <div class="col-xs-9">
+                                                                            <h4 class="m-t-0 member-name"><strong>@member.FullName</strong></h4>
+                                                                            <div class="pull-left">
+                                                                                <p class="emailClass"><i class="fa fa-envelope-o c-gray-light p-r-10"></i><span id="idEmail_@member.SignUpId">@member.EmailId</span></p>
+
+                                                                            </div>
+                                                                            <div class="pull-right align-right">
+                                                                                @foreach (var memberName in member.Roles)
+                                                                                {
+                                                                                    <p><i class="fa fa-mail-forward c-gray-light p-r-10"></i>@memberName.Name @*Architect*@</p>
+                                                                                }
+                                                                            </div>
+                                                                        </div>
+                                                                    </label>
+                                                                </div>
+                                                    </td>
+                                                </tr>  
+                                          }
+                                        </tbody>
+                                    </table>
+                                                            
+                                                          </div>  
+
+                                                        </div>
+
+                                                    </div>
+                                              
+                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 align-center">
+                                                        <button class="btn btn-success" onclick="SendInvitationMail();">Send Invitation</button> 
+                                                        <div id="idSuccessfullyInv" class="alert alert-success dis_non">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                        <strong>Congratulations!</strong> Invitations sent successfully.
+                                    </div>
+                                                        <div id="idAlert" class="alert alert-warning dis_non">
+                                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                                        <strong>Alert!</strong> Please select atleast one member.
+                                    </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END MAIN CONTENT -->
+                </div>
+            </div>
+
+
+            <div class="tab-pane fade" id="tab1_2">
+                <div class="container m-t-30">
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading bg-gray">
+                            <h3 class="panel-title"><strong> </strong></h3>
+      
+        
+         
+                        </div>
+                        <div class="panel-body">
+                            <div class="row m-0">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                   
+        
+        
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+                            </div>
+                             <div class="tab-pane fade" id="tab1_3">tab3</div>
+                             
+                             </div>
+                        </div>                              
+          
+                        
+                     
+    
+        <div class="md-modal md-effect-1" id="modal-19">
+                <div class="md-content md-content-white">
+                    <h3>Alert!</h3>
+                    <div>
+                    <p>You are changing the role of <span id="idRolePersonName"></span> @*"Person Name"*@ from <span id="idRoleFrom"></span> @*"their previous Role"*@ to <span id="idRoleTo"></span> @*"their new Role"*@ . Are you sure you want to proceed?</p>
+                        <p>
+                    <div class="col-lg-6">
+                        <button class="btn btn-success flt_rht" onclick="SaveMakeAdmin();">Save</button></div>
+                    <div class="col-lg-6">
+                        <button class="btn btn-modal btn-dark flt_lft">Cancel</button>
+                    </div>
+                </p>
+                </div>
+            </div>
+    </div>
+            <div class="md-modal md-effect-1" id="modal-21">
+                <div class="md-content md-content-white">
+                    <h3>Alert!</h3>
+                    <div>
+                <p>You are going to disable the account for <span id="idDisbaleName"></span>. Are you sure you wnt to proceed?</p>
+                        <p>
+                    <div class="col-lg-6">
+                        <button class="btn btn-success flt_rht" onclick="SaveDisableAccount();">Save</button></div>
+                    <div class="col-lg-6">
+                        <button class="btn btn-modal btn-dark flt_lft">Cancel</button>
+                    </div>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+      
+    <div class="md-modal md-effect-1" id="modal-20">
+        <div class="md-content md-content-white">
+            <h3>Select Role</h3>
+            <div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <label>
+                        <input type="radio" name="radio-choice-0" checked>Admin</label><label><input type="radio" name="radio-choice-0" checked>CRM</label><label><input type="radio" name="radio-choice-0" checked>User</label></div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <label>
+                        <input type="radio" name="radio-choice-0" checked>Finance</label><label><input type="radio" name="radio-choice-0" checked>Interior Designer</label><label><input type="radio" name="radio-choice-0" checked>PMO</label></div>
+                <div class="clearfix"></div>
+                <p>
+
+                    <div class="col-lg-6">
+                        <button class="btn btn-success flt_rht" id="idSave" onclick="SaveChangeRole();">Save</button></div>
+                    <div class="col-lg-6">
+                        <button class="btn btn-modal btn-dark flt_lft">Cancel</button>
+                    </div>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="md-overlay"></div>
+    <!-- Overlay Element. Important: place just after last modal -->
+            
+        
+ 
+
+
+
+ <!-- BEGIN MANDATORY SCRIPTS -->
+    <script src="~/assets/plugins/jquery111.js"></script>
+    <script src="~/assets/plugins/jquerymigrate121.js"></script>
+    <script src="~/assets/plugins/jqueryui/jqueryui1104min.js"></script>
+    <script src="~/assets/plugins/jquerymobile/jquerymobile142.js"></script>
+    <script src="~/assets/plugins/bootstrap/bootstrapmin.js"></script>
+ 
+    <script src="~/assets/plugins/bootstrapdropdown/bootstraphoverdropdown.js"></script>
+    <script src="~/assets/plugins/bootstrapselect/bootstrapselect.js"></script>
+    <script src="~/assets/plugins/mcustomscrollbar/jquerymCustomScrollbarconcatmin.js"></script>
+    <script src="~/assets/plugins/mmenu/js/jquerymmenuminall.js"></script>
+    <script src="~/assets/plugins/nprogress/nprogress.js"></script>
+    <script src="~/assets/plugins/chartssparkline/sparklinemin.js"></script>
+    <script src="~/assets/plugins/breakpoints/breakpoints.js"></script>
+    <script src="~/assets/plugins/numerator/jquerynumerator.js"></script>
+    <script src="~/assets/js/mailbox.js"></script>
+    <script src="~/assets/plugins/jquerycookiemin.js" type="text/javascript"></script>
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+
+    <script src="~/assets/plugins/quicksearch/jqueryquicksearch.js"></script>
+    <script src="~/assets/js/members.js"></script>
+    <script src="~/assets/plugins/bootstrapdatepicker/bootstrapdatepicker.js"></script>
+    <script src="~/assets/plugins/modal/js/classie.js"></script>
+    <script src="~/assets/plugins/modal/js/modalEffects.js"></script>
+        <script src="~/assets/plugins/bootstrap-switch/bootstrapswitch.js"></script>
+    <script src="~/assets/plugins/bootstrap-progressbar/bootstrapprogressbar.js"></script>
+    <script src="~/assets/plugins/datatables/dynamic/jquerydataTablesmin.js"></script>
+    <script src="~/assets/plugins/datatables/dataTablesbootstrap.js"></script>
+    <script src="~/assets/plugins/datatables/dataTablestableTools.js"></script>
+    <script src="~/assets/plugins/datatables/tableeditable.js"></script>
+    <script src="~/assets/js/tabledynamic.js"></script>
+     <!-- END  PAGE LEVEL SCRIPTS -->
+    <!-- END MANDATORY SCRIPTS -->
+    <script src="~/assets/js/application.js"></script>
+     <script>
+         // init bootpag
+         $('.pagination').bootpag({
+             total: 10
+         }).on("page", function (event, /* page number here */ num) {
+            // $(".member-entry").html("Insert content"); // some ajax content loading...
+         });
+</script>
+    <script type="text/javascript">
+       
+        var AdminId = '';
+        function MakeAdmin(ID) {
+            AdminId = ID;
+            $("#idRolePersonName").text($("#idName_" + ID).text());
+            $("#idRoleFrom").text($("#idUserRole_" + ID).text());
+            $("#idRoleTo").text("Admin");
+           
+        }
+        function SaveMakeAdmin() {
+            $.post('/Admin/ChangeRole', { "id": AdminId, "RoleName": "Admin" },
+          function () {
+              // alert("data is posted successfully");
+              window.location.reload(true);
+          });
+        }
+
+        var UserId = '';
+        function ChangeRole(Id) {
+            UserId = Id;
+        }
+        function SaveChangeRole() {
+            var role = $(".ui-radio-on").text();
+            $("#idUserRole_" + UserId).text(role);
+            //alert(role);
+            //alert(UserId);
+            $.post('/Admin/ChangeRole', { "id": UserId, "RoleName": role },
+            function () {
+                // alert("data is posted successfully");
+                window.location.reload(true);
+
+            });
+        }
+        var DisableId = '';
+        function DisableAccount(id) {
+            DisableId = id;
+        }
+        function SaveDisableAccount() {             
+            $("#idDisbaleName").text($("#idName_" + DisableId).text());            
+            $.post('/Admin/DisableAccount', { "id": DisableId },
+              function () {
+                 // alert("data is posted successfully");
+                  window.location.reload(true);
+              });
+        }       
+        function InviteNewMembers() {           
+                   
+            $.post('/Admin/InviteNewMembers',
+              function () {
+                  // alert("data is posted successfully");
+                 // window.location.reload(true);
+              });
+        }
+        var strEmail;
+        var chkId = '';
+        function CheckBoxCheck(cl, id) {
+            chkId = id;
+            if ($(cl).hasClass("ui-checkbox-on")) {
+               // alert('noclass');
+                strEmail = strEmail.replace($("#idEmail_" + id).text() + ',', "");
+            }
+            else {
+                if (strEmail != undefined) {
+                    strEmail += $("#idEmail_" + id).text() + ',';
+                   // alert(strEmail);
+                }
+                else {
+                    strEmail = $("#idEmail_" + id).text() + ',';                   
+                }             
+            }         
+        }
+        function SendInvitationMail() {
+            ($('.ui-checkbox-on').size());
+            if ($('.ui-checkbox-on').size() != 0) {
+                $("#idAlert").addClass("dis_non");               
+            }
+            if ($('.ui-checkbox-on').size() == 0) {
+                $("#idAlert").removeClass("dis_non");
+
+                return false;
+            }
+            $.post('/Admin/SendInvitationMail', { "To": strEmail },
+              function () {
+                  // alert("data is posted successfully");
+                 // window.location.reload(true);
+              });
+            $("#idSuccessfullyInv").removeClass("dis_non");
+        
+        }
+        $("#idSortName").click(function () {
+            $("#idSortName").toggleClass("des");
+            if( $("#idSortName").hasClass("des"))
+            {
+                alert("des"); 
+                $.post('/Admin/AdminAccount', { "sortingOrd": "descending" },
+            function () {
+                // alert("data is posted successfully");
+                window.location.reload(true); 
+            });
+            }
+            else
+            {
+                alert("Asc");
+                $.post('/Admin/AdminAccount', { "sortingOrd": "ascending" },
+                function () {
+                    window.location.reload(true);
+           });
+            }
+        });
+
+    </script>
+</body>
+</html>
